@@ -8,8 +8,8 @@
 # bobo changed this code a lot in 2019.03.14
 # bobo rewrite and optimize the code in 2019.10.17
 ##############################################################################
-# 设置工作路径
-setwd("E:/实验/01.实时定量/cA1 Scarb1 未完成")
+# 设置工作路径,改为自己的实际路径
+setwd("E:/实验/01.实时定量/cB1 Acaca已完成")
 # 载入所需要的包
 # install.packages("agricolae") # 第一次需安装包
 # install.packages("tidyverse")
@@ -155,7 +155,7 @@ v_b.aov <- aov(v_b$values~v_b$ind, data = v_b)
 v_b.aov.summary <- summary(v_b.aov) # 查看单因素方差分析结果
 # LSD事后多重比较分析：
 summary(v_b.aov)
-v_b.lsd <- LSD.test(v_b.aov,"v_b$ind", p.adj = "none")
+v_b.lsd <- LSD.test(v_b.aov, "v_b$ind", p.adj = "none")
 vb_t_lsd <- v_b.lsd
 v_b.lsd$groups
 TukeyHSD(v_b.aov)
@@ -383,7 +383,7 @@ v_mean4
 
 # 需要修改的做图参数
 # 显著性标记
-v_sig <- c("a","b","c","A","B","B")
+v_sig <- c("a","b","b","A","Bb","C")
 vTimesandp[, 3:4]
 # 基因名字
 vGeneName <- "Acaca"
@@ -416,18 +416,19 @@ p5 <- ggplot(data = v_mean, aes(x = v_group2,
                 size = 0.1,
                 position =  position_dodge(0.9)) +
   # 标准误的文字
-  geom_text(aes(y = as.numeric(as.character(v_mean$values)) + as.numeric(as.character(v_mean$sd)) + 2, 
+  geom_text(aes(y = as.numeric(as.character(v_mean$values)) + as.numeric(as.character(v_mean$sd)) + 3, 
                 label = v_sig), 
             position = position_dodge(0.9), size = 3, family = "Times New Roman") +
   # specify tick marks
   coord_cartesian(ylim = c(0, vYAxisMax)) +
-  scale_y_continuous(breaks = seq(0, vYAxisMax, 2), expand = c(0, 0)) +
+  scale_y_continuous(breaks = seq(0, vYAxisMax, 4), expand = c(0, 0)) +
   # remove the background, gridlines and border line and some other beautification settings
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
         panel.background = element_blank()) +
   # legend
   theme(legend.position = c(0.33, 0.95),
+        # legend.position = "top",
         legend.background = element_rect(fill = NULL),
         legend.key.size = unit(0.32, "cm"),
         legend.text = element_text(size = 10, family = "Times New Roman"),
