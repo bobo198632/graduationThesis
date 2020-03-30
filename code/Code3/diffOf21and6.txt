@@ -1,8 +1,0 @@
-00010 Glycolysis / Gluconeogenesis (7)
-00030 Pentose phosphate pathway (1)
-00040 Pentose and glucuronate interconversions (1)
-00051 Fructose and mannose metabolism (3)
-00052 Galactose metabolism (3)
-00053 Ascorbate and aldarate metabolism (1)
-00500 Starch and sucrose metabolism (5)
-00520 Amino sugar and nucleotide sugar metabolism (3)
